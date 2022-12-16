@@ -1,0 +1,834 @@
+# 1. children
+```{r}
+children1214<-read.csv("data_for_table_children.csv", header = T, sep = ",")
+ies.children1214= escalc(xi= FSO, ni=Total ,data = children1214, measure ="PFT",add=0)
+pes.children1214 =rma(yi, vi, data = ies.children1214, method = "DL",level = 95)
+pes=predict(pes.children1214, transf=transf.ipft.hm, targ=list(ni=children1214$Total))
+print(pes, digits=2)
+print(pes.children1214)
+confint(pes.children1214,digits = 2)
+```
+
+```{r}
+png(file = "children1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=children1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+
+# 2. adult
+
+```{r}
+adult1214<-read.csv("data_for_table_adults.csv", header = T, sep = ",")
+ies.adult1214= escalc(xi= FSO, ni=Total ,data = adult1214, measure ="PFT",add=0)
+pes.adult1214 =rma(yi, vi, data = ies.adult1214, method = "DL",level = 95)
+pes=predict(pes.adult1214, transf=transf.ipft.hm, targ=list(ni=adult1214$Total))
+print(pes, digits=2)
+print(pes.adult1214)
+confint(pes.adult1214,digits = 2)
+```
+
+```{r}
+png(file = "adult1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=adult1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+
+# 3 chil-adult
+```{r}
+childadult1214<-read.csv("chil-adult.csv", header = T, sep = ",")
+ies.childadult1214= escalc(xi= FSO, ni=Total ,data = childadult1214, measure ="PFT",add=0)
+pes.childadult1214 =rma(yi, vi, data = ies.childadult1214, method = "DL",level = 95)
+pes=predict(pes.childadult1214, transf=transf.ipft.hm, targ=list(ni=childadult1214$Total))
+print(pes, digits=2)
+print(pes.childadult1214)
+confint(pes.childadult1214,digits = 2)
+```
+
+```{r}
+png(file = "childadult1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=childadult1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 4. Tle
+
+```{r}
+TLE1214<-read.csv("data_for_table_TLE.csv", header = T, sep = ",")
+ies.TLE1214= escalc(xi= FSO, ni=Total ,data = TLE1214, measure ="PFT",add=0)
+pes.TLE1214 =rma(yi, vi, data = ies.TLE1214, method = "DL",level = 95)
+pes=predict(pes.TLE1214, transf=transf.ipft.hm, targ=list(ni=TLE1214$Total))
+print(pes, digits=2)
+print(pes.TLE1214)
+confint(pes.TLE1214,digits = 2)
+```
+
+```{r}
+png(file = "TLE1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=TLE1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 5 etle
+```{r}
+etle1214<-read.csv("data_for_table_eTLE.csv", header = T, sep = ",")
+ies.etle1214= escalc(xi= FSO, ni=Total ,data = etle1214, measure ="PFT",add=0)
+pes.etle1214 =rma(yi, vi, data = ies.etle1214, method = "DL",level = 95)
+pes=predict(pes.etle1214, transf=transf.ipft.hm, targ=list(ni=etle1214$Total))
+print(pes, digits=2)
+print(pes.etle1214)
+confint(pes.etle1214,digits = 2)
+```
+
+```{r}
+png(file = "etle1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=etle1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+
+# 6 TLE ETLE
+```{r}
+TLEetle1214<-read.csv("TLE_eTLE.csv", header = T, sep = ",")
+ies.TLEetle1214= escalc(xi= FSO, ni=Total ,data = TLEetle1214, measure ="PFT",add=0)
+pes.TLEetle1214 =rma(yi, vi, data = ies.TLEetle1214, method = "DL",level = 95)
+pes=predict(pes.TLEetle1214, transf=transf.ipft.hm, targ=list(ni=TLEetle1214$Total))
+print(pes, digits=2)
+print(pes.TLEetle1214)
+confint(pes.TLEetle1214,digits = 2)
+```
+
+```{r}
+png(file = "TLEetle1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=TLEetle1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 7 tumor
+```{r}
+Tumor1214<-read.csv("data_for_table_tumor.csv", header = T, sep = ",")
+ies.Tumor1214= escalc(xi= FSO, ni=Total ,data = Tumor1214, measure ="PFT",add=0)
+pes.Tumor1214 =rma(yi, vi, data = ies.Tumor1214, method = "DL",level = 95)
+pes=predict(pes.Tumor1214, transf=transf.ipft.hm, targ=list(ni=Tumor1214$Total))
+print(pes, digits=2)
+print(pes.Tumor1214)
+confint(pes.Tumor1214,digits = 2)
+```
+
+```{r}
+png(file = "Tumor1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=Tumor1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+
+# 8 MCD
+
+```{r}
+MCD1214<-read.csv("data_for_table_MCD.csv", header = T, sep = ",")
+ies.MCD1214= escalc(xi= FSO, ni=Total ,data = MCD1214, measure ="PFT",add=0)
+pes.MCD1214 =rma(yi, vi, data = ies.MCD1214, method = "DL",level = 95)
+pes=predict(pes.MCD1214, transf=transf.ipft.hm, targ=list(ni=MCD1214$Total))
+print(pes, digits=2)
+print(pes.MCD1214)
+confint(pes.MCD1214,digits = 2)
+```
+
+```{r}
+png(file = "MCD1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=MCD1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+
+# 9 MTS
+```{r}
+MTS1214<-read.csv("data_for_table_MTS.csv", header = T, sep = ",")
+ies.MTS1214= escalc(xi= FSO, ni=Total ,data = MTS1214, measure ="PFT",add=0)
+pes.MTS1214 =rma(yi, vi, data = ies.MTS1214, method = "DL",level = 95)
+pes=predict(pes.MTS1214, transf=transf.ipft.hm, targ=list(ni=MTS1214$Total))
+print(pes, digits=2)
+print(pes.MTS1214)
+confint(pes.MTS1214,digits = 2)
+```
+
+```{r}
+png(file = "MTS12141214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=MTS1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 10 CM
+```{r}
+CM1214<-read.csv("data_for_table_CCM.csv", header = T, sep = ",")
+ies.CM1214= escalc(xi= FSO, ni=Total ,data = CM1214, measure ="PFT",add=0)
+pes.CM1214 =rma(yi, vi, data = ies.CM1214, method = "DL",level = 95)
+pes=predict(pes.CM1214, transf=transf.ipft.hm, targ=list(ni=CM1214$Total))
+print(pes, digits=2)
+print(pes.CM1214)
+confint(pes.CM1214,digits = 2)
+```
+
+```{r}
+png(file = "CM1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=CM1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 11 MIXEd
+```{r}
+MIXEDpath1214<-read.csv("mixed.csv", header = T, sep = ",")
+ies.MIXEDpath1214= escalc(xi= FSO, ni=Total ,data = MIXEDpath1214, measure ="PFT",add=0)
+pes.MIXEDpath1214 =rma(yi, vi, data = ies.MIXEDpath1214, method = "DL",level = 95)
+pes=predict(pes.MIXEDpath1214, transf=transf.ipft.hm, targ=list(ni=MIXEDpath1214$Total))
+print(pes, digits=2)
+print(pes.MIXEDpath1214)
+confint(pes.MIXEDpath1214,digits = 2)
+```
+
+```{r}
+png(file = "MIXEDpath1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=MIXEDpath1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+
+# 12 MRIpositive
+```{r}
+MRIpositive1214<-read.csv("MRI-positive.csv", header = T, sep = ",")
+ies.MRIpositive1214= escalc(xi= FSO, ni=Total ,data = MRIpositive1214, measure ="PFT",add=0)
+pes.MRIpositive1214 =rma(yi, vi, data = ies.MRIpositive1214, method = "DL",level = 95)
+pes=predict(pes.MRIpositive1214, transf=transf.ipft.hm, targ=list(ni=MRIpositive1214$Total))
+print(pes, digits=2)
+print(pes.MRIpositive1214)
+confint(pes.MRIpositive1214,digits = 2)
+```
+
+```{r}
+png(file = "MRIpositive1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=MRIpositive1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+
+#13 MRI negative
+```{r}
+MRInegative1214<-read.csv("data_for_table_MRI-.csv", header = T, sep = ",")
+ies.MRInegative1214= escalc(xi= FSO, ni=Total ,data = MRInegative1214, measure ="PFT",add=0)
+pes.MRInegative1214 =rma(yi, vi, data = ies.MRInegative1214, method = "DL",level = 95)
+pes=predict(pes.MRInegative1214, transf=transf.ipft.hm, targ=list(ni=MRInegative1214$Total))
+print(pes, digits=2)
+print(pes.MRInegative1214)
+confint(pes.MRInegative1214,digits = 2)
+```
+
+```{r}
+png(file = "MRInegative1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=MRInegative1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+
+# 14 MIX MRI
+```{r}
+MIXMRI1214<-read.csv("MRI-pos_neg.csv", header = T, sep = ",")
+ies.MIXMRI1214= escalc(xi= FSO, ni=Total ,data = MIXMRI1214, measure ="PFT",add=0)
+pes.MIXMRI1214 =rma(yi, vi, data = ies.MIXMRI1214, method = "DL",level = 95)
+pes=predict(pes.MIXMRI1214, transf=transf.ipft.hm, targ=list(ni=MIXMRI1214$Total))
+print(pes, digits=2)
+print(pes.MIXMRI1214)
+confint(pes.MIXMRI1214,digits = 2)
+```
+
+```{r}
+png(file = "MIXMRI1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=MIXMRI1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 15 MEG
+```{r}
+MEG1214<-read.csv("data_for_table_MEG.csv", header = T, sep = ",")
+ies.MEG1214= escalc(xi= FSO, ni=Total ,data = MEG1214, measure ="PFT",add=0)
+pes.MEG1214 =rma(yi, vi, data = ies.MEG1214, method = "DL",level = 95)
+pes=predict(pes.MEG1214, transf=transf.ipft.hm, targ=list(ni=MEG1214$Total))
+print(pes, digits=2)
+print(pes.MEG1214)
+confint(pes.MEG1214,digits = 2)
+```
+
+```{r}
+png(file = "MEG1214.png", width = 3600, height = 4000, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=MEG1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 16 non-MEG
+```{r}
+noMEG1214<-read.csv("Non_MEG.csv", header = T, sep = ",")
+ies.noMEG1214= escalc(xi= FSO, ni=Total ,data = noMEG1214, measure ="PFT",add=0)
+pes.noMEG1214 =rma(yi, vi, data = ies.noMEG1214, method = "DL",level = 95)
+pes=predict(pes.noMEG1214, transf=transf.ipft.hm, targ=list(ni=noMEG1214$Total))
+print(pes, digits=2)
+print(pes.noMEG1214)
+confint(pes.noMEG1214,digits = 2)
+```
+
+```{r}
+png(file = "noMEG1214.png", width = 3600, height = 5800, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=noMEG1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 17 Plan
+```{r}
+Plan1214<-read.csv("data_for_table_plan.csv", header = T, sep = ",")
+ies.Plan1214= escalc(xi= FSO, ni=Total ,data = Plan1214, measure ="PFT",add=0)
+pes.Plan1214 =rma(yi, vi, data = ies.Plan1214, method = "DL",level = 95)
+pes=predict(pes.Plan1214, transf=transf.ipft.hm, targ=list(ni=Plan1214$Total))
+print(pes, digits=2)
+print(pes.Plan1214)
+confint(pes.Plan1214,digits = 2)
+```
+
+```{r}
+png(file = "Plan1214.png", width = 3600, height = 5800, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=Plan1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 18 nonplan
+```{r}
+nonplan1214<-read.csv("not_change_plan.csv", header = T, sep = ",")
+ies.nonplan1214= escalc(xi= FSO, ni=Total ,data = nonplan1214, measure ="PFT",add=0)
+pes.nonplan1214 =rma(yi, vi, data = ies.nonplan1214, method = "DL",level = 95)
+pes=predict(pes.nonplan1214, transf=transf.ipft.hm, targ=list(ni=nonplan1214$Total))
+print(pes, digits=2)
+print(pes.nonplan1214)
+confint(pes.nonplan1214,digits = 2)
+```
+
+```{r}
+png(file = "nonplan1214.png", width = 3600, height = 5800, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=nonplan1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 19 not report complete
+```{r}
+noncomplete1214<-read.csv("not_report_complete.csv", header = T, sep = ",")
+ies.noncomplete1214= escalc(xi= FSO, ni=Total ,data = noncomplete1214, measure ="PFT",add=0)
+pes.noncomplete1214 =rma(yi, vi, data = ies.noncomplete1214, method = "DL",level = 95)
+pes=predict(pes.noncomplete1214, transf=transf.ipft.hm, targ=list(ni=noncomplete1214$Total))
+print(pes, digits=2)
+print(pes.noncomplete1214)
+confint(pes.noncomplete1214,digits = 2)
+```
+
+```{r}
+png(file = "noncomplete1214.png", width = 3600, height = 5800, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=noncomplete1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 20 complete
+```{r}
+complete1214<-read.csv("table_complete_1214.csv", header = T, sep = ",")
+ies.complete1214= escalc(xi= FSO, ni=Total ,data = complete1214, measure ="PFT",add=0)
+pes.complete1214 =rma(yi, vi, data = ies.complete1214, method = "DL",level = 95)
+pes=predict(pes.complete1214, transf=transf.ipft.hm, targ=list(ni=complete1214$Total))
+print(pes, digits=2)
+print(pes.complete1214)
+confint(pes.complete1214,digits = 2)
+```
+
+```{r}
+png(file = "complete1214.png", width = 3600, height = 5800, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=complete1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 21 Engel
+```{r}
+Engel1214<-read.csv("data_for_table_EngelI.csv", header = T, sep = ",")
+ies.Engel1214= escalc(xi= FSO, ni=Total ,data = Engel1214, measure ="PFT",add=0)
+pes.Engel1214 =rma(yi, vi, data = ies.Engel1214, method = "DL",level = 95)
+pes=predict(pes.Engel1214, transf=transf.ipft.hm, targ=list(ni=Engel1214$Total))
+print(pes, digits=2)
+print(pes.Engel1214)
+confint(pes.Engel1214,digits = 2)
+```
+
+```{r}
+png(file = "Engel1214.png", width = 3600, height = 5800, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=Engel1214, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 22 outcome2ys
+```{r}
+outcome2ys<-read.csv("data_for_table_outcome2.csv", header = T, sep = ",")
+ies.outcome2ys= escalc(xi= FSO, ni=Total ,data = outcome2ys, measure ="PFT",add=0)
+pes.outcome2ys =rma(yi, vi, data = ies.outcome2ys, method = "DL",level = 95)
+pes=predict(pes.outcome2ys, transf=transf.ipft.hm, targ=list(ni=outcome2ys$Total))
+print(pes, digits=2)
+print(pes.outcome2ys)
+confint(pes.outcome2ys,digits = 2)
+```
+
+```{r}
+png(file = "outcome2ys.png", width = 3600, height = 5800, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=outcome2ys, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+# 23 outcome1y
+```{r}
+outcome1y<-read.csv("1youtcome.csv", header = T, sep = ",")
+ies.outcome1y= escalc(xi= FSO, ni=Total ,data = outcome1y, measure ="PFT",add=0)
+pes.outcome1y =rma(yi, vi, data = ies.outcome1y, method = "DL",level = 95)
+pes=predict(pes.outcome1y, transf=transf.ipft.hm, targ=list(ni=outcome1y$Total))
+print(pes, digits=2)
+print(pes.outcome1y)
+confint(pes.outcome1y,digits = 2)
+```
+
+```{r}
+png(file = "outcome1y.png", width = 3600, height = 5800, res = 300)
+pes.summary=metaprop(FSO, Total, studlab =ID, data=outcome1y, sm="PFT",fixed = FALSE,random = TRUE)
+forest.meta(pes.summary, 
+            xlim=c(0,1),#xz轴的刻度范围#
+            colgap = unit(1,'mm'),#列与列之间的距离#
+            xlab = "Proportion",#x轴的标题#
+            col.square = "lightskyblue",
+            col.diamond = "tomato",
+            leftcols = c("Author","studlab","FSO","Total"),# 在列里加一列#
+            style="text-align:left;",# 文本居中对齐
+            just.forest="left",#为各列数据信息对齐的定义函数（“left”-左对齐、“right”-右对齐、“center”-居中
+            just.addcols.left = "left",
+            colgap.studlab = unit(0.3,'mm'),
+            colgap.forest.left = unit(2,'mm'),
+            print.stat = T,
+            leftlabs=c("Study","reference","FSO(n)","Total(N)"))
+```
+
+# 24 adult_vs_child
+```{r}
+avsc1214<-read.csv("chil-adult.csv",header = T)
+ m.avsc1214<- metabin(event.e = Fa1, #event.e指实验组的事件发生数
+                  n.e = Chi,#n.e是指实验组的总人数
+                  event.c = Fa2,# event.c指对照组事件数
+                  n.c = Ad,# n.c指对照组总数
+                  studlab = ID,#排列order
+                  data = avsc1214,#哪一个data数据
+                  sm = "OR",# effect size即效应量
+                  method = "MH",# 分析方法
+                  
+                  MH.exact = TRUE,#有单元cell小于0时候，补上0.5
+                  fixed = FALSE,
+                 random = TRUE,
+                 method.tau = "PM",
+                  title = "Favorable outcome of ioECoG vs non-ioECoG")
+ summary(m.avsc1214)
+```
+
+
+```{r}
+ png(file = "avsc1214.png", width = 3000, height = 2400, res = 260)# 保存图片格式至文件夹中
+ forest.meta(m.avsc1214,
+            leftcols = c("Author","studlab","event.e", "n.e", "event.c","n.c"),
+             leftlabs = c("study","Reference","FSO", "Total(N)", "FSO","Total(N)"),
+             label.e = c("Chidren"),
+             label.c = c("Adult"),
+             col.square = "lightskyblue",
+            just = "right",#对齐方式
+            lineheight = unit(1,'mm'),#设置图形中的行距
+             colgap = unit(1,'mm'),#设置图形中的列间距
+             colgap.studlab = unit(0.00000001,'mm'),
+            colgap.left = unit(1,'mm') ,
+             colgap.forest.left = unit(1,'mm'), 
+             col.diamond = "tomato",
+            just.addcols.left = "left",
+            fontsize=8,
+            print.stat = TRUE )
+```
+# 25 MRI
+```{r}
+MRI1214<-read.csv("MRI_vs_MRI.csv",header = T)
+ m.MRI1214<- metabin(event.e = favorable1, #event.e指实验组的事件发生数
+                  n.e = MRI1,#n.e是指实验组的总人数
+                  event.c = favorable2,# event.c指对照组事件数
+                  n.c = MRI2,# n.c指对照组总数
+                  studlab = ID,#排列order
+                  data = MRI1214,#哪一个data数据
+                  sm = "OR",# effect size即效应量
+                  method = "MH",# 分析方法
+                  
+                  MH.exact = TRUE,#有单元cell小于0时候，补上0.5
+                  fixed = FALSE,
+                 random = TRUE,
+                 method.tau = "PM",
+                  title = "Favorable outcome of ioECoG vs non-ioECoG")
+```
+
+```{r}
+ png(file = "MRI+-1214.png", width = 3000, height = 2400, res = 260)# 保存图片格式至文件夹中
+ forest.meta(m.MRI1214,
+            leftcols = c("Author","studlab","event.e", "n.e", "event.c","n.c"),
+             leftlabs = c("study","Reference","FSO", "Total(N)", "FSO","Total(N)"),
+             label.e = c("MRI+"),
+             label.c = c("MRI-"),
+             col.square = "lightskyblue",
+            just = "right",#对齐方式
+            lineheight = unit(1,'mm'),#设置图形中的行距
+             colgap = unit(1,'mm'),#设置图形中的列间距
+             colgap.studlab = unit(0.00000001,'mm'),
+            colgap.left = unit(1,'mm') ,
+             colgap.forest.left = unit(1,'mm'), 
+             col.diamond = "tomato",
+            just.addcols.left = "left",
+            fontsize=8,
+            print.stat = TRUE )
+```
+
+# 26 complete-HFO
+```{r}
+HFO1214<-read.csv("complete_HFOs.csv",header = T)
+ m.HFO1214<- metabin(event.e = complete, #event.e指实验组的事件发生数
+                  n.e = total1,#n.e是指实验组的总人数
+                  event.c = incomplete,# event.c指对照组事件数
+                  n.c = total2,# n.c指对照组总数
+                  studlab = ID,#排列order
+                  data = HFO1214,#哪一个data数据
+                  sm = "OR",# effect size即效应量
+                  method = "MH",# 分析方法
+                  
+                  MH.exact = TRUE,#有单元cell小于0时候，补上0.5
+                  fixed = FALSE,
+                 random = TRUE,
+                 method.tau = "PM",
+                  title = "Favorable outcome of ioECoG vs non-ioECoG")
+```
+
+```{r}
+ png(file = "HFO1214.png", width = 3000, height = 2400, res = 260)# 保存图片格式至文件夹中
+ forest.meta(m.HFO1214,
+            leftcols = c("Author","studlab","event.e", "n.e", "event.c","n.c"),
+             leftlabs = c("study","reference","FSO", "Total(N)", "FSO","Total(N)"),
+             label.e = c("Complete"),
+             label.c = c("Incomplete"),
+             col.square = "lightskyblue",
+            just = "right",#对齐方式
+            lineheight = unit(1,'mm'),#设置图形中的行距
+             colgap = unit(1,'mm'),#设置图形中的列间距
+             colgap.studlab = unit(0.00000001,'mm'),
+            colgap.left = unit(1,'mm') ,
+             colgap.forest.left = unit(1,'mm'), 
+             col.diamond = "tomato",
+            just.addcols.left = "left",
+            fontsize=8,
+            print.stat = TRUE )
+```
+# 27 complete_spikes
+```{r}
+spikes1214<-read.csv("complete_spikes.csv",header = T)
+ m.spikes1214<- metabin(event.e = complete, #event.e指实验组的事件发生数
+                  n.e = total1,#n.e是指实验组的总人数
+                  event.c = incomplete,# event.c指对照组事件数
+                  n.c = total2,# n.c指对照组总数
+                  studlab = ID,#排列order
+                  data = spikes1214,#哪一个data数据
+                  sm = "OR",# effect size即效应量
+                  method = "MH",# 分析方法
+                  
+                  MH.exact = TRUE,#有单元cell小于0时候，补上0.5
+                  fixed = FALSE,
+                 random = TRUE,
+                 method.tau = "PM",
+                  title = "Favorable outcome of ioECoG vs non-ioECoG")
+```
+
+```{r}
+ png(file = "spikes1214.png", width = 3000, height = 2400, res = 260)# 保存图片格式至文件夹中
+ forest.meta(m.spikes1214,
+            leftcols = c("Author","studlab","event.e", "n.e", "event.c","n.c"),
+             leftlabs = c("study","reference","FSO", "Total(N)", "FSO","Total(N)"),
+             label.e = c("Complete"),
+             label.c = c("Incomplete"),
+             col.square = "lightskyblue",
+            just = "right",#对齐方式
+            lineheight = unit(1,'mm'),#设置图形中的行距
+             colgap = unit(1,'mm'),#设置图形中的列间距
+             colgap.studlab = unit(0.00000001,'mm'),
+            colgap.left = unit(1,'mm') ,
+             colgap.forest.left = unit(1,'mm'), 
+             col.diamond = "tomato",
+            just.addcols.left = "left",
+            fontsize=8,
+            print.stat = TRUE )
+```
